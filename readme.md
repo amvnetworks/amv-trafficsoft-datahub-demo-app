@@ -128,10 +128,6 @@ e.g. `findbugs`, `checkstyle`, `javadoc` - tasks which results are not essential
 ### IDE
 As this project uses [Project Lombok](https://projectlombok.org/) make sure you have annotation processing enabled.
 
-### metrics
-Prometheus is supported as monitoring system. Metrics can be pulled from `http://localhost:9001/manage/prometheus` 
-
-
 # license
 The project is licensed under the Apache License. See [LICENSE](LICENSE) for details.
 
