@@ -1,0 +1,4 @@
+rootProject.name = 'amv-trafficsoft-datahub-demo-app'
+
+include 'example-app'
+

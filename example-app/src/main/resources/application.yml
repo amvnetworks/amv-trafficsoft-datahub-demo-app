@@ -1,0 +1,34 @@
+spring.application.name: 'amv-trafficsoft-datahub-demo'
+spring.profiles.active: demo
+
+debug: false
+
+logging.config: classpath:logback-spring.xml
+
+server.port: 9000
+
+amv.trafficsoft.api.rest:
+  baseUrl: 'https://www.example.com'
+  username: 'john_doe'
+  password: 'mysupersecretpassword'
+  contractId: 0
+
+# these properties control the way how data is retrieved via TrafficSoft
+# if `enabled` is `false` then the application will NOT retrieve data via TrafficSoft
+# this can be useful if you just want to start the application without changing data
+amv.trafficsoft.datahub.xfcd:
+  enabled: true
+  fetch-interval-in-seconds: 120
+  initial-fetch-delay-in-seconds: 30
+  max-amount-of-nodes-per-delivery: 5000
+  refetch-immediately-on-delivery-with-max-amount-of-nodes: true
+
+amv.trafficsoft.xfcd.consumer.jdbc:
+  enabled: true
+  jdbcUrl: 'jdbc:sqlite:trafficsoft-datahub-example-app.db'
+  driverClassName: 'org.sqlite.JDBC'
+  schemaMigrationEnabled: true
+  flywayScriptsLocation: 'db/sqlite/xfcd/migration'
+  sendConfirmationEvents: true
+  pool:
+    max-pool-size: 1
