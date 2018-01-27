@@ -6,6 +6,7 @@ amv-trafficsoft-datahub-demo-app
 
 amv-trafficsoft-datahub-demo-app is a showcase application using [amv-trafficsoft-datahub](https://github.com/amvnetworks/amv-trafficsoft-datahub).
 This software is currently only used for demo purposes and should not be used in a production environment.
+Please contact a developer if you need further information.
 
 # usage
 The [application.yml](example-app/src/main/resources/application.yml) acts as a
@@ -54,6 +55,21 @@ An application loaded with these configuration values would:
   - use a sqlite database named 'trafficsoft-datahub-example-app.db' in the working directory
   - wait and initial 30s before retrieving data every 120s 
 
+If you want to use a mysql database instead you can specify following values:
+```yaml
+amv.trafficsoft.xfcd.consumer.jdbc:
+  enabled: true
+  jdbcUrl: 'jdbc:mysql://localhost:3306/my_datahub?characterEncoding=utf8&amp;autoReconnect=true'
+  username: 'my_db_user'
+  password: 'my_db_password'
+  driverClassName: 'com.mysql.jdbc.Driver'
+  schemaMigrationEnabled: true
+  flywayScriptsLocation: 'db/mysql/xfcd/migration'
+  sendConfirmationEvents: true
+  pool:
+    max-pool-size: 3
+```
+
 ## build & run
 ### gradle + sprint-boot
 Run the application with active `development` profile
@@ -80,7 +96,7 @@ $ curl localhost:9001/manage/health
   },
   "db" : {
     "status" : "UP",
-    "database" : "MySQL",
+    "database" : "SQLite",
     "hello" : 1
   }
 }
