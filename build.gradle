@@ -4,10 +4,10 @@ buildscript {
     ext {
         springBootVersion = '1.5.8.RELEASE'
         amvDatahubVersion = '0.3.1'
-        trafficsoftRestVersion = '0.4.0'
-        vertxVersion = '3.5.0'
-        amvVertxVersion = '0.0.1'
-        jacksonVersion = '2.8.10'
+        sqliteJdbcVersion = '3.19.3'
+        mysqlConnectorVersion = '5.1.8'
+        flywayVersion = '4.2.0'
+        hikariVersion = '2.7.2'
         reactorVersion = '3.1.0.RELEASE'
     }
     repositories {
@@ -120,10 +120,6 @@ subprojects {
         compile 'io.dropwizard.metrics:metrics-core:3.2.5'
         compileOnly 'org.projectlombok:lombok:1.16.16'
 
-        compile "io.projectreactor:reactor-core:${reactorVersion}"
-        compile "io.projectreactor.addons:reactor-adapter:${reactorVersion}"
-        compile "io.projectreactor.addons:reactor-extra:${reactorVersion}"
-
         testCompile 'junit:junit:4.12'
         testCompile 'org.hamcrest:hamcrest-all:1.3'
         testCompile 'pl.pragmatists:JUnitParams:1.0.6'
@@ -131,9 +127,6 @@ subprojects {
         // TODO: commons-lang should be a testCompile dependency:
         // only used for RandomUtils in tests
         compile 'org.apache.commons:commons-lang3:3.5'
-
-        testCompile "io.vertx:vertx-unit:${vertxVersion}"
-        testCompile "io.projectreactor:reactor-test:${reactorVersion}"
 
         testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
     }

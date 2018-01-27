@@ -19,9 +19,10 @@ configurations.all {
         dependencySubstitution {
             // necessary as spring-boot plugin pulls in old versions
             // see https://discuss.gradle.org/t/excluded-dependence-comes-back-when-spring-boot-plugin-is-applied/17945/2
-            substitute module('com.zaxxer:HikariCP') with module('com.zaxxer:HikariCP:2.7.2')
-            substitute module('org.flywaydb:flyway-core') with module('org.flywaydb:flyway-core:4.2.0')
-            substitute module('org.xerial:sqlite-jdbc') with module('org.xerial:sqlite-jdbc:3.19.3')
+            substitute module('com.zaxxer:HikariCP') with module("com.zaxxer:HikariCP:${hikariVersion}")
+            substitute module('org.flywaydb:flyway-core') with module("org.flywaydb:flyway-core:${flywayVersion}")
+            substitute module('org.xerial:sqlite-jdbc') with module("org.xerial:sqlite-jdbc:${sqliteJdbcVersion}")
+            substitute module('io.projectreactor:reactor-core') with module("io.projectreactor:reactor-core:${reactorVersion}")
         }
     }
 }
@@ -40,13 +41,12 @@ springBoot {
     executable = true
 }
 
-
 dependencies {
     compile "org.amv.trafficsoft.datahub:xfcd-spring-boot-starter:${amvDatahubVersion}"
     compile "org.amv.trafficsoft.datahub:xfcd-demo-spring-boot-starter:${amvDatahubVersion}"
 
-    compile 'org.xerial:sqlite-jdbc:3.19.3'
-    compile 'mysql:mysql-connector-java:5.1.8'
+    compile "org.xerial:sqlite-jdbc:${sqliteJdbcVersion}"
+    compile "mysql:mysql-connector-java:${mysqlConnectorVersion}"
 
     compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
     compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
