@@ -1,4 +1,4 @@
-spring.application.name: 'amv-trafficsoft-datahub-demo'
+spring.application.name: 'amv-trafficsoft-datahub-demo-app'
 spring.profiles.active: demo
 
 debug: false
@@ -6,6 +6,10 @@ debug: false
 logging.config: classpath:logback-spring.xml
 
 server.port: 9000
+
+management.security.enabled: false
+management.port: 9001
+management.context-path: /manage
 
 amv.trafficsoft.api.rest:
   baseUrl: 'https://www.example.com'
@@ -32,3 +36,16 @@ amv.trafficsoft.xfcd.consumer.jdbc:
   sendConfirmationEvents: true
   pool:
     max-pool-size: 1
+
+# for mysql use
+#amv.trafficsoft.xfcd.consumer.jdbc:
+#  enabled: true
+#  jdbcUrl: 'jdbc:mysql://localhost:3306/my_datahub?characterEncoding=utf8&amp;autoReconnect=true'
+#  username: 'my_db_user'
+#  password: 'my_db_password'
+#  driverClassName: 'com.mysql.jdbc.Driver'
+#  schemaMigrationEnabled: true
+#  flywayScriptsLocation: 'db/mysql/xfcd/migration'
+#  sendConfirmationEvents: true
+#  pool:
+#    max-pool-size: 3
