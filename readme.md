@@ -53,7 +53,7 @@ amv.trafficsoft.xfcd.consumer.jdbc:
 An application loaded with these configuration values would:
   - start a webserver on port 9000
   - use a sqlite database named 'trafficsoft-datahub-example-app.db' in the working directory
-  - wait and initial 30s before retrieving data every 120s 
+  - initial wait 30s before retrieving data every 120s 
 
 If you want to use a mysql database instead you can specify following values:
 ```yaml
