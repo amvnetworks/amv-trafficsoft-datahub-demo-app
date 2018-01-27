@@ -71,7 +71,7 @@ amv.trafficsoft.xfcd.consumer.jdbc:
 ```
 
 ## build & run
-### gradle + sprint-boot
+### gradle + spring-boot
 Run the application with active `development` profile
 ```bash
 $ ./gradlew example-app:bootRun -Dspring.profiles.active=development
