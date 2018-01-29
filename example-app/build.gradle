@@ -43,7 +43,8 @@ springBoot {
 
 dependencies {
     compile "org.amv.trafficsoft.datahub:xfcd-spring-boot-starter:${amvDatahubVersion}"
-    //compile "org.amv.trafficsoft.datahub:xfcd-demo-spring-boot-starter:${amvDatahubVersion}"
+    compile "org.amv.trafficsoft.datahub:xfcd-consumer-sqlite-spring-boot-starter:${amvDatahubVersion}"
+    compile "org.amv.trafficsoft.datahub:xfcd-consumer-mysql-spring-boot-starter:${amvDatahubVersion}"
 
     compile "org.xerial:sqlite-jdbc:${sqliteJdbcVersion}"
     compile "mysql:mysql-connector-java:${mysqlConnectorVersion}"
