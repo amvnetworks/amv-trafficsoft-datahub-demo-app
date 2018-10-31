@@ -17,9 +17,6 @@ amv.trafficsoft.api.rest:
   password: 'mysupersecretpassword'
   contractId: 0
 
-# these properties control the way how data is retrieved via TrafficSoft
-# if `enabled` is `false` then the application will NOT retrieve data via TrafficSoft
-# this can be useful if you just want to start the application without changing data
 amv.trafficsoft.datahub.xfcd:
   enabled: true
   fetch-interval-in-seconds: 120
@@ -27,16 +24,14 @@ amv.trafficsoft.datahub.xfcd:
   max-amount-of-nodes-per-delivery: 5000
   refetch-immediately-on-delivery-with-max-amount-of-nodes: true
 
-# these properties are taken when creating a consumer using a database as datasource.
-# multiple consumers are supported. consumers with a jdbc datasource are the most widely used ones.
-# at the moment 'sqlite' and 'mysql' are supported.
-# See 'application-datasource-mysql.example.yml' for an example with mysql.
 amv.trafficsoft.xfcd.consumer.jdbc:
   enabled: true
-  jdbcUrl: 'jdbc:sqlite:trafficsoft-datahub-example-app.db'
-  driverClassName: 'org.sqlite.JDBC'
+  jdbcUrl: 'jdbc:mysql://localhost:3306/my_datahub?characterEncoding=utf8&amp;autoReconnect=true'
+  username: 'john_doe'
+  password: 'mysupersecretpassword'
+  driverClassName: 'com.mysql.jdbc.Driver'
   schemaMigrationEnabled: true
-  flywayScriptsLocation: 'db/sqlite/xfcd/migration'
+  flywayScriptsLocation: 'db/mysql/xfcd/migration'
   sendConfirmationEvents: true
   pool:
-    max-pool-size: 1
+    max-pool-size: 3
