@@ -4,17 +4,17 @@ buildscript {
     ext {
         springBootVersion = '1.5.8.RELEASE'
         amvDatahubVersion = '0.3.1'
-        sqliteJdbcVersion = '3.19.3'
-        mysqlConnectorVersion = '5.1.8'
+        sqliteJdbcVersion = '3.25.2'
+        mysqlConnectorVersion = '5.1.30'
         flywayVersion = '4.2.0'
-        hikariVersion = '2.7.2'
+        hikariVersion = '2.7.9'
         reactorVersion = '3.1.0.RELEASE'
     }
     repositories {
         jcenter()
     }
     dependencies {
-        classpath 'nu.studer:gradle-credentials-plugin:1.0.3'
+        classpath 'nu.studer:gradle-credentials-plugin:1.0.4'
     }
 }
 
